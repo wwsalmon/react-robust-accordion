@@ -10,7 +10,7 @@ function Demo() {
             marginRight: "auto"
         }}>
             <h1>React Robust Accordion</h1>
-            <p>A simple, robust accordion component for React (<a href="https://github.com/wwsalmon/react-robust-accordion">GitHub</a>, <a href="">npm</a>). Made by Samson Zhang (<a
+            <p>A simple, robust accordion component for React (<a href="https://github.com/wwsalmon/react-robust-accordion">GitHub</a>, <a href="https://www.npmjs.com/package/react-robust-accordion">npm</a>). Made by Samson Zhang (<a
                 href="https://github.com/wwsalmon">GitHub</a>, <a href="https://twitter.com/wwsalmon">Twitter</a>, <a
                 href="https://www.samsonzhang.com/">website</a>). Install with <code>npm i react-robust-accordion</code>.
             </p>

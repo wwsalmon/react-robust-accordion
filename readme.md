@@ -13,6 +13,10 @@ Install via npm:
 Basic usage:
 
 ```
+import Accordion from "react-robust-accordion"
+
+...
+
 <Accordion label={<div>Put what you want to show when collapsed here!</div>}>
     <div>Put what you want to show when expanded here!</div>
 </Accordion>
