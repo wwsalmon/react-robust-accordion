@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState, Fragment} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import useResizeAware from "react-resize-aware";
 import PropTypes from "prop-types";
 

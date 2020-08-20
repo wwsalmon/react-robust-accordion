@@ -2,14 +2,21 @@
   "name": "react-robust-accordion",
   "version": "1.0.0",
   "description": "Simple, robust accordion React component",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "start": "webpack-dev-server --open --config ./webpack.development.config.js",
+    "build": "SET NODE_ENV=production && webpack --config ./webpack.production.config.js"
   },
   "author": "Samson Zhang <samson@samsonzhang.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wwsalmon/react-robust-accordion.git"
+  },
+  "homepage": "https://github.com/wwsalmon/react-robust-accordion",
+  "bugs": {
+    "url": "https://github.com/wwsalmon/react-robust-accordion/issues"
+  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
