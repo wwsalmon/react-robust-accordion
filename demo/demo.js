@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import Accordion from "../index.js";
 
 function Demo() {
+    const [accordionOpen, setAccordionOpen] = useState(false);
+
     return (
         <div style={{
             maxWidth: 1200,
@@ -45,6 +47,13 @@ function Demo() {
                     <p>Place accordions next to each other, within each other, whatever you want to do -- you can trust
                         that it'll work exactly how you expect, and it'll stay out of your way.</p>
                 </div>
+            </Accordion>
+            <button onClick={() => setAccordionOpen(!accordionOpen)}>{accordionOpen ? "Close" : "Open"}</button>
+            <Accordion
+                label={<p className="accordion label">Controlled accordion. Click the button above to toggle</p>}
+                openState={accordionOpen}
+                setOpenState={setAccordionOpen}>
+                <p className="accordion content-diff">Controlled by an external state variable!</p>
             </Accordion>
         </div>
     );

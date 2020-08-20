@@ -3,20 +3,27 @@ import useResizeAware from "react-resize-aware";
 import PropTypes from "prop-types";
 
 const Accordion = (props) => {
-    const [isOpen, setIsOpen] = useState(props.open || false);
+    const [isOpen, setIsOpen] = useState(props.setOpenState ? props.openState : (props.open || false));
     const [height, setHeight] = useState(0);
     const [transition, setTransition] = useState("");
     const contentRef = useRef(null);
     const [resizeListener, sizes] = useResizeAware();
 
     useEffect(() => {
+        toggleOpen();
+    }, [props.openState]);
+
+    useEffect(() => {
         setHeight(isOpen ? contentRef.current.scrollHeight + 1 : 0);
     }, [sizes]);
 
-    function toggleOpen() {
+    function toggleOpen(e = null) {
         setTransition("all 0.2s ease");
         setHeight(!isOpen ? contentRef.current.scrollHeight + 1 : 0);
-        setIsOpen(!isOpen);
+
+        if (e) props.setOpenState(!isOpen);
+        else setIsOpen(props.openState);
+
         setTimeout(() => {
             setTransition("");
         }, 200)
@@ -47,6 +54,8 @@ const Accordion = (props) => {
 Accordion.propTypes = {
     className: PropTypes.string,
     open: PropTypes.bool,
+    openState: PropTypes.bool,
+    setOpenState: PropTypes.func,
     children: PropTypes.any.isRequired,
     label: PropTypes.any.isRequired
 };
