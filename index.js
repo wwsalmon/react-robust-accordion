@@ -35,7 +35,7 @@ const Accordion = (props) => {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             <div onClick={toggleOpen} className="cursor-pointer">
                 {props.label}
             </div>
@@ -47,7 +47,6 @@ const Accordion = (props) => {
                     transition: transition
                 }}
                 ref={contentRef}
-                className={props.className}
             >
                 {props.children}
                 {resizeListener}
