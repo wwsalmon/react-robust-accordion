@@ -21,8 +21,13 @@ const Accordion = (props) => {
         setTransition("all 0.2s ease");
         setHeight(!isOpen ? contentRef.current.scrollHeight + 1 : 0);
 
-        if (e) props.setOpenState(!isOpen);
-        else setIsOpen(props.openState);
+        if (props.setOpenState && e) {
+            props.setOpenState(!isOpen);
+        } else if (props.setOpenState) {
+            setIsOpen(props.openState);
+        } else {
+            setIsOpen(!isOpen);
+        }
 
         setTimeout(() => {
             setTransition("");
