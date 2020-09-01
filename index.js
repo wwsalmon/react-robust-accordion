@@ -3,14 +3,14 @@ import useResizeAware from "react-resize-aware";
 import PropTypes from "prop-types";
 
 const Accordion = (props) => {
-    const [isOpen, setIsOpen] = useState(props.setOpenState ? props.openState : (props.open || false));
+    const [isOpen, setIsOpen] = useState(props.setOpenState ? props.openState : !!props.open);
     const [height, setHeight] = useState(0);
     const [transition, setTransition] = useState("");
     const contentRef = useRef(null);
     const [resizeListener, sizes] = useResizeAware();
 
     useEffect(() => {
-        toggleOpen();
+        if (typeof props.openState !== "undefined") toggleOpen();
     }, [props.openState]);
 
     useEffect(() => {
