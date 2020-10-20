@@ -54,7 +54,7 @@ const Accordion = (props) => {
                 style={{
                     cursor: props.noClickLabel ? "unset" : "pointer"
                 }}
-                tabIndex={props.noClickLabel ? "-1" : "0"}
+                tabIndex={props.noClickLabel ? "" : "0"}
                 role={props.noClickLabel ? "" : "button"}
             >
                 {props.label}
