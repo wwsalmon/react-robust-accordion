@@ -2,6 +2,13 @@ import React, {useEffect, useRef, useState} from "react";
 import useResizeAware from "react-resize-aware";
 import PropTypes from "prop-types";
 
+/**
+ * @param {reactNode} props.children - Elements displayed in body of accordion (i.e. when expanded)
+ * @param {reactNode} props.label - Elements displayed in label of accordion (i.e. when collapsed)
+ * @param {boolean} [props.openState] - Optional custom state variable for external control
+ * @param {function} [props.setOpenState] - Optional custom setState function for external control (required if using props.openState)
+ * @param {boolean} [props.noClickLabel] - Optional flag to make clicking the label not expand the accordion. Useful if using external control
+ */
 const Accordion = (props) => {
     const [isOpen, setIsOpen] = useState(props.setOpenState ? props.openState : !!props.open);
     const [height, setHeight] = useState(0);
@@ -36,7 +43,9 @@ const Accordion = (props) => {
 
     return (
         <div className={props.className}>
-            <div onClick={toggleOpen} className="cursor-pointer">
+            <div onClick={(e) => {
+                if (!props.noClickLabel) toggleOpen(e);
+            }} className="cursor-pointer">
                 {props.label}
             </div>
             <div

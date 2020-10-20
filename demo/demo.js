@@ -4,6 +4,7 @@ import Accordion from "../index.js";
 
 function Demo() {
     const [accordionOpen, setAccordionOpen] = useState(false);
+    const [noClickAccordionOpen, setNoClickAccordionOpen] = useState(false);
 
     return (
         <div style={{
@@ -48,11 +49,26 @@ function Demo() {
                         that it'll work exactly how you expect, and it'll stay out of your way.</p>
                 </div>
             </Accordion>
+
+            <hr/>
+
             <button onClick={() => setAccordionOpen(!accordionOpen)}>{accordionOpen ? "Close" : "Open"}</button>
             <Accordion
-                label={<p className="accordion label">Controlled accordion. Click the button above to toggle</p>}
+                label={<p className="accordion label">Controlled accordion. Click the button above or this label to toggle</p>}
                 openState={accordionOpen}
                 setOpenState={setAccordionOpen}>
+                <p className="accordion content-diff">Controlled by an external state variable!</p>
+            </Accordion>
+
+            <hr/>
+
+            <button onClick={() => setNoClickAccordionOpen(!noClickAccordionOpen)}>{noClickAccordionOpen ? "Close" : "Open"}</button>
+            <Accordion
+                label={<p className="accordion label">Controlled noclickLabel accordion. Click the button above to toggle. Clicking the label will not toggle.</p>}
+                openState={noClickAccordionOpen}
+                setOpenState={setNoClickAccordionOpen}
+                noClickLabel={true}
+            >
                 <p className="accordion content-diff">Controlled by an external state variable!</p>
             </Accordion>
         </div>
