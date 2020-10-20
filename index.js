@@ -43,9 +43,20 @@ const Accordion = (props) => {
 
     return (
         <div className={props.className}>
-            <div onClick={(e) => {
-                if (!props.noClickLabel) toggleOpen(e);
-            }} className="cursor-pointer">
+            <div
+                onClick={(e) => {
+                    if (!props.noClickLabel) toggleOpen(e);
+                }}
+                onKeyDown={(e) => {
+                    const keyPressed = e.keyCode || e.which;
+                    if (!props.noClickLabel && (keyPressed === 13 || keyPressed === 32)) toggleOpen(e);
+                }}
+                style={{
+                    cursor: props.noClickLabel ? "unset" : "pointer"
+                }}
+                tabIndex={props.noClickLabel ? "-1" : "0"}
+                role={props.noClickLabel ? "" : "button"}
+            >
                 {props.label}
             </div>
             <div
