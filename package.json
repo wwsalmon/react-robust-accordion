@@ -1,6 +1,6 @@
 {
   "name": "react-robust-accordion",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Simple, robust accordion React component",
   "main": "dist/bundle.js",
   "scripts": {
@@ -18,9 +18,11 @@
     "url": "https://github.com/wwsalmon/react-robust-accordion/issues"
   },
   "dependencies": {
+    "react-resize-aware": "^3.0.1"
+  },
+  "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-resize-aware": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
